@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from './../environments/environment';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -7,10 +8,10 @@ import { environment } from './../environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor() {
-    console.log(environment.production); // Logs false for default environment
-  }
-  title = 'ReceipeRepo';
+export class AppComponent implements OnInit {
+  constructor(private authService: AuthService) {}
 
+  ngOnInit(): void {
+    this.authService.autoLogin();
+  }
 }
