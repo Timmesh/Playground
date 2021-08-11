@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard } from "./auth/auth.guard";
 import { ReceipeDetailComponent } from "./receipes/receipe-detail/receipe-detail.component";
 import { ReceipeEditComponent } from "./receipes/receipe-edit/receipe-edit.component";
 import { ReceipeResolverService } from "./receipes/receipe.resolver";
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   {
     path: "receipes",
     component: ReceipesComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "", component: RecipeStartComponent },
       { path: "new", component: ReceipeEditComponent },
