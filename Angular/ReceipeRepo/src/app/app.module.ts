@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor-service";
 import { AuthComponent } from "./auth/auth.component";
+import { CoreModule } from "./core.module";
 import { HeaderComponent } from "./header/header.component";
 import { ReceipeService } from "./receipes/receipe.service";
 import { ReceipesModule } from "./receipes/receipes.module";
@@ -28,16 +29,8 @@ import { ShoppingListService } from "./shopping-list/shopping-List.service";
     AppRoutingModule,
     ReceipesModule,
     ShoppingListModule,
-    SharedModule
-  ],
-  providers: [
-    ShoppingListService,
-    ReceipeService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
+    SharedModule,
+    CoreModule
   ],
   bootstrap: [AppComponent],
 })
