@@ -3,7 +3,9 @@ package org.timmesh.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
+@ToString(exclude={"picture"})
 @NoArgsConstructor
 @Getter
 @Setter
