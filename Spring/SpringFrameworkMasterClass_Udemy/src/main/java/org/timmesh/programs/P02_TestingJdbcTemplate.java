@@ -1,5 +1,6 @@
 package org.timmesh.programs;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,10 +21,19 @@ public class P02_TestingJdbcTemplate {
 //		updateShipperPhone(4, "(973) 142-4784");
 //		printProductCount();
 //		printShipperName(4);
-		printProductDetails(33);
+//		printProductDetails(33);
+		printAllShippers();
 		ctx.close();
 	}
 
+	static void printAllShippers() {
+		String sql = "Select * from shippers";
+		List<Map<String, Object>> list = template.queryForList(sql);
+		for(Map<String, Object> data: list) {
+			System.out.println(data.get("company_name") + " --> " + data.get("phone"));
+		}
+	}
+	
 	static void printProductDetails(int productId) {
 		String sql = "select * from products where product_id=?";
 		Map<String, Object> data = template.queryForMap(sql, productId);
