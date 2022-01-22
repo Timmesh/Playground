@@ -12,7 +12,7 @@ public class P01_GetProductCount {
 		
 		// object of spring container
 		ctx = new AnnotationConfigApplicationContext(AppConfig1.class);
-		
+		System.out.println("---------");
 		ProductDao jdbcDao = ctx.getBean("jdbcDao", ProductDao.class);
 		ProductDao jdbcDao2 = ctx.getBean("jdbcDao", ProductDao.class);
 		// Singleton Scope(Default) which refers to the same object created in the spring container
