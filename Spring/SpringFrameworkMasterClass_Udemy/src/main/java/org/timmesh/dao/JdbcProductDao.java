@@ -20,7 +20,12 @@ public class JdbcProductDao implements ProductDao {
 	private String user;
 	private String password;
 
+	private Connection connection;
+
 	private Connection createConnection() throws ClassNotFoundException, SQLException {
+		if (connection != null && connection.isClosed() == false) {
+			return connection;
+		}
 		Class.forName(driverClassName);
 		return DriverManager.getConnection(url, user, password);
 	}
