@@ -5,12 +5,22 @@ import java.util.Map;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.timmesh.config.AppConfig4;
+import org.timmesh.entity.Category;
 
 public class P02_TestingJdbcTemplate {
 
 	static JdbcTemplate template;
-
+	static RowMapper<Category> rowMapper = (rs, rowNum) -> {
+		Category c = new Category();
+		c.setCategoryId(rs.getInt("category_id"));
+		c.setCategoryName(rs.getString("category_name"));
+		c.setDescription(rs.getString("description"));
+		c.setPicture(rs.getBytes("picture"));
+		return c;
+	};
+	
 	public static void main(String[] args) {
 
 		AnnotationConfigApplicationContext ctx;
@@ -23,8 +33,26 @@ public class P02_TestingJdbcTemplate {
 //		printShipperName(4);
 //		printProductDetails(33);
 //		printAllShippers();
-		printAllShipperNames();
+//		printAllShipperNames();
+//		getCategory(1);
+		getAllCategories();
 		ctx.close();
+	}
+	
+	static void getAllCategories() {
+		List<Category> list = template.query("select * from categories", rowMapper);
+		for(Category c: list) {
+			System.out.println(c);
+		}
+	}
+	
+	static void getCategory(int categoryId) {
+		String sql = "select * from categories where category_id = ?";
+		
+		Category cat = template.queryForObject(sql, rowMapper, categoryId);
+		System.out.println("Id = " + cat.getCategoryId());
+		System.out.println("Name = " + cat.getCategoryName());
+		System.out.println("Description = " + cat.getDescription());
 	}
 	
 	static void printAllShipperNames() {
