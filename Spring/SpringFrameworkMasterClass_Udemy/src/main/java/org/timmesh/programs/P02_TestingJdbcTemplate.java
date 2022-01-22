@@ -22,8 +22,17 @@ public class P02_TestingJdbcTemplate {
 //		printProductCount();
 //		printShipperName(4);
 //		printProductDetails(33);
-		printAllShippers();
+//		printAllShippers();
+		printAllShipperNames();
 		ctx.close();
+	}
+	
+	static void printAllShipperNames() {
+		String sql = "select company_name from shippers";
+		List<String> list = template.queryForList(sql, String.class);
+		for(String name: list) {
+			System.out.println(name);
+		}
 	}
 
 	static void printAllShippers() {
