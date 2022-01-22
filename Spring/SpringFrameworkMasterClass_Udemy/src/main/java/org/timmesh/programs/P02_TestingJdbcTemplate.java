@@ -15,10 +15,17 @@ public class P02_TestingJdbcTemplate {
 		template = ctx.getBean(JdbcTemplate.class);
 
 //		insertShipper();
-		updateShipperPhone(4, "(973) 142-4784");
+//		updateShipperPhone(4, "(973) 142-4784");
+		printProductCount();
 		ctx.close();
 	}
 
+	static void printProductCount() {
+		String sql = "select count(*) from products";
+		Integer pc = template.queryForObject(sql, Integer.class);
+		System.out.println("There are " + pc + " products.");
+	}
+	
 	static void updateShipperPhone(int id, String phone) {
 		String sql = "update shippers set phone=? where shipper_id=?";
 		template.update(sql, phone, id);
