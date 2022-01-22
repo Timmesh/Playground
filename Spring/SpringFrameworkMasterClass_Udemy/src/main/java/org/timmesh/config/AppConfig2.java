@@ -33,8 +33,9 @@ public class AppConfig2 {
 	@Bean
 	public JdbcProductDao jdbcDao(Connection connection) { // injection
 		System.out.println("AppConfig2.jdbcDao() called");
-		JdbcProductDao dao = new JdbcProductDao();
-		dao.setConnection(connection); // manual wiring
-		return dao;
+//		JdbcProductDao dao = new JdbcProductDao();
+//		dao.setConnection(connection); // manual wiring
+//		return dao;
+		return new JdbcProductDao();
 	}
 }

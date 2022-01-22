@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +21,7 @@ public class JdbcProductDao implements ProductDao {
 	private String url;
 	private String user;
 	private String password;
-
+	@Autowired
 	private Connection connection;
 
 	private Connection createConnection() throws ClassNotFoundException, SQLException {
