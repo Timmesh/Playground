@@ -9,14 +9,17 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
+@Component("jdbcDao")
 @Getter
 @Setter
+@Lazy
 public class JdbcProductDao implements ProductDao {
 
 	private String driverClassName;
@@ -28,6 +31,11 @@ public class JdbcProductDao implements ProductDao {
 
 	@Autowired(required = false)
 	private DataSource dataSource;
+	
+	public JdbcProductDao() {
+		System.out.println("AppConfig3.jdbcDao() called");
+	}
+	
 	
 	private Connection createConnection() throws ClassNotFoundException, SQLException {
 		
@@ -54,5 +62,7 @@ public class JdbcProductDao implements ProductDao {
 			throw new RuntimeException(ex);
 		}
 	}
+
+	
 
 }

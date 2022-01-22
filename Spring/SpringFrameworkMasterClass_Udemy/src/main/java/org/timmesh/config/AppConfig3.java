@@ -1,7 +1,5 @@
 package org.timmesh.config;
 
-import java.sql.Connection;
-
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -10,9 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.timmesh.dao.JdbcProductDao;
 
-@ComponentScan(basePackages = {"co.vinod.dao"})
+@ComponentScan(basePackages = {"org.timmesh.dao"})
 @Configuration
 @PropertySource("classpath:jdbc.properties")
 public class AppConfig3 {
@@ -41,12 +38,6 @@ public class AppConfig3 {
 		bds.setMinIdle(2);
 		
 		return bds;
-	}
-	
-	@Bean
-	public JdbcProductDao jdbcDao() { 
-		System.out.println("AppConfig3.jdbcDao() called");
-		return new JdbcProductDao();
 	}
 	
 }
