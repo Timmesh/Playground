@@ -16,10 +16,17 @@ public class P02_TestingJdbcTemplate {
 
 //		insertShipper();
 //		updateShipperPhone(4, "(973) 142-4784");
-		printProductCount();
+//		printProductCount();
+		printShipperName(4);
 		ctx.close();
 	}
 
+	static void printShipperName(int shipperId) {
+		String sql = "select company_name from shippers where shipper_id=?";
+		String name = template.queryForObject(sql, String.class, shipperId);
+		System.out.println("Shipper name = " + name);
+	}
+	
 	static void printProductCount() {
 		String sql = "select count(*) from products";
 		Integer pc = template.queryForObject(sql, Integer.class);
