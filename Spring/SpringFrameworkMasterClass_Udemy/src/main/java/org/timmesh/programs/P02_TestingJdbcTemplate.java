@@ -1,5 +1,7 @@
 package org.timmesh.programs;
 
+import java.util.Map;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.timmesh.config.AppConfig4;
@@ -17,10 +19,19 @@ public class P02_TestingJdbcTemplate {
 //		insertShipper();
 //		updateShipperPhone(4, "(973) 142-4784");
 //		printProductCount();
-		printShipperName(4);
+//		printShipperName(4);
+		printProductDetails(33);
 		ctx.close();
 	}
 
+	static void printProductDetails(int productId) {
+		String sql = "select * from products where product_id=?";
+		Map<String, Object> data = template.queryForMap(sql, productId);
+		for(String key: data.keySet()) {
+			System.out.println(key + " --> " + data.get(key));
+		}
+	}	
+	
 	static void printShipperName(int shipperId) {
 		String sql = "select company_name from shippers where shipper_id=?";
 		String name = template.queryForObject(sql, String.class, shipperId);
