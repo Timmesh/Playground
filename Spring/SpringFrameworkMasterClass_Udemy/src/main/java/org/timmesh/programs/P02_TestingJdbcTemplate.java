@@ -34,7 +34,7 @@ public class P02_TestingJdbcTemplate {
 //		printProductDetails(33);
 //		printAllShippers();
 //		printAllShipperNames();
-//		getCategory(1);
+		getCategory(1);
 		getAllCategories();
 		ctx.close();
 	}
@@ -44,7 +44,7 @@ public class P02_TestingJdbcTemplate {
 		for(Category c: list) {
 			System.out.println(c);
 		}
-	}
+	}	
 	
 	static void getCategory(int categoryId) {
 		String sql = "select * from categories where category_id = ?";
