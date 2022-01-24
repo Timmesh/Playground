@@ -1,4 +1,4 @@
-package co.vinod.entity;
+package org.timmesh.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
