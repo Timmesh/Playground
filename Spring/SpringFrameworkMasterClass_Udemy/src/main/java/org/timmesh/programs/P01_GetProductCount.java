@@ -2,11 +2,12 @@ package org.timmesh.programs;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.timmesh.config.AppConfig3;
+import org.timmesh.dao.DaoException;
 import org.timmesh.dao.ProductDao;
 
 public class P01_GetProductCount {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DaoException {
 		// a variable representing the spring container
 		AnnotationConfigApplicationContext ctx;
 
