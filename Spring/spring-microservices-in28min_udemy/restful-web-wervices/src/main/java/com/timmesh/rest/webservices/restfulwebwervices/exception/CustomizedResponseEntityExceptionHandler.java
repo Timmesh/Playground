@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.helloworld;
+package com.timmesh.rest.webservices.restfulwebwervices.exception;
 
 import java.util.Date;
 
@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import com.timmesh.rest.webservices.restfulwebwervices.helloworld.ExceptionResponse;
+import com.timmesh.rest.webservices.restfulwebwervices.helloworld.UserNotFoundException;
 
 @ControllerAdvice
 @RestController

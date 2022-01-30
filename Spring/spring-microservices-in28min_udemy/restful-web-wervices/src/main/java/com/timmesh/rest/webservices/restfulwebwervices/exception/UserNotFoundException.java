@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.helloworld;
+package com.timmesh.rest.webservices.restfulwebwervices.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
