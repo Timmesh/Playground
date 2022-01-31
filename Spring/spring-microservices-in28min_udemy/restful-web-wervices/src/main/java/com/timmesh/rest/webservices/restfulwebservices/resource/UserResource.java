@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.resource;
+package com.timmesh.rest.webservices.restfulwebservices.resource;
 
 import java.net.URI;
 import java.util.List;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.timmesh.rest.webservices.restfulwebwervices.entity.User;
-import com.timmesh.rest.webservices.restfulwebwervices.exception.UserNotFoundException;
-import com.timmesh.rest.webservices.restfulwebwervices.service.UserDaoService;
+import com.timmesh.rest.webservices.restfulwebservices.entity.User;
+import com.timmesh.rest.webservices.restfulwebservices.exception.UserNotFoundException;
+import com.timmesh.rest.webservices.restfulwebservices.service.UserDaoService;
 
 @RestController
 public class UserResource {

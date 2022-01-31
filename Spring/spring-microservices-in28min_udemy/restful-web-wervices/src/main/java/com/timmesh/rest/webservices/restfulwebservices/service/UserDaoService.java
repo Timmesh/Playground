@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.service;
+package com.timmesh.rest.webservices.restfulwebservices.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.timmesh.rest.webservices.restfulwebwervices.entity.User;
+import com.timmesh.rest.webservices.restfulwebservices.entity.User;
 
 @Component
 public class UserDaoService {

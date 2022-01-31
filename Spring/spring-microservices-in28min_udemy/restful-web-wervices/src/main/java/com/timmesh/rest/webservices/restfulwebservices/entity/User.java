@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.entity;
+package com.timmesh.rest.webservices.restfulwebservices.entity;
 
 import java.util.Date;
 

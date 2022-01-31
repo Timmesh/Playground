@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.exception;
+package com.timmesh.rest.webservices.restfulwebservices.exception;
 
 import java.util.Date;
 

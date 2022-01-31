@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebwervices.helloworld;
+package com.timmesh.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
