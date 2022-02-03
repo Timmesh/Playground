@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.timmesh.rest.webservices.restfulwebservices.entity.User;
-import com.timmesh.rest.webservices.restfulwebservices.exception.UserNotFoundException;
 import com.timmesh.rest.webservices.restfulwebservices.service.UserService;
 
 @RestController
@@ -35,9 +34,6 @@ public class UserResource {
 	@GetMapping("/users/{id}")
 	public EntityModel<User> retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
-		if (user == null) {
-			throw new UserNotFoundException("id-" + id);
-		}
 		// "all-users", SERVER_PATH + "/users"
 		// retrieveAllUsers
 		EntityModel<User> entityModel = EntityModel.of(user);
@@ -62,10 +58,6 @@ public class UserResource {
 
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable int id) {
-		User user = service.deleteById(id);
-
-		if (user == null) {
-			throw new UserNotFoundException("id-" + id);
-		}
+		service.deleteById(id);
 	}
 }
