@@ -4,18 +4,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.timmesh.rest.webservices.restfulwebservices.entity.User;
+import com.timmesh.rest.webservices.restfulwebservices.exception.UserNotFoundException;
+import com.timmesh.rest.webservices.restfulwebservices.repository.UserJPARepository;
 
 @Component
-public class UserDaoService {
+public class UserService {
 
 	private static List<User> users = new ArrayList<>();
 
 	private static int usersCount = 3;
 
+	@Autowired
+	UserJPARepository jpaRepository;
+	
 	static {
 		users.add(new User(1, "Adam", new Date()));
 		users.add(new User(2, "Eve", new Date()));
@@ -23,7 +30,7 @@ public class UserDaoService {
 	}
 
 	public List<User> findAll() {
-		return users;
+		return jpaRepository.findAll();
 	}
 
 	public User save(User user) {
@@ -35,12 +42,11 @@ public class UserDaoService {
 	}
 
 	public User findOne(int id) {
-		for (User user : users) {
-			if (user.getId() == id) {
-				return user;
-			}
+		Optional<User> user = jpaRepository.findById(id);
+		if (!user.isPresent()) {
+			throw new UserNotFoundException("id-" + id);
 		}
-		return null;
+		return user.get();
 	}
 
 	public User deleteById(int id) {

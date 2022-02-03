@@ -19,13 +19,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.timmesh.rest.webservices.restfulwebservices.entity.User;
 import com.timmesh.rest.webservices.restfulwebservices.exception.UserNotFoundException;
-import com.timmesh.rest.webservices.restfulwebservices.service.UserDaoService;
+import com.timmesh.rest.webservices.restfulwebservices.service.UserService;
 
 @RestController
 public class UserResource {
 
 	@Autowired
-	private UserDaoService service;
+	private UserService service;
 
 	@GetMapping("/users")
 	public List<User> retrieveAllUsers() {
