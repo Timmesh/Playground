@@ -37,4 +37,12 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 
+	public List<com.timmesh.rest.webservices.restfulwebservices.entity.Post> retreiveAllUserPosts(int id) {
+		Optional<User> user = userRepository.findById(id);
+		if (!user.isPresent()) {
+			throw new UserNotFoundException("id-" + id);
+		}
+		return user.get().getPosts();
+	}
+
 }

@@ -1,4 +1,4 @@
-package com.timmesh.rest.webservices.restfulwebservices.user;
+package com.timmesh.rest.webservices.restfulwebservices.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

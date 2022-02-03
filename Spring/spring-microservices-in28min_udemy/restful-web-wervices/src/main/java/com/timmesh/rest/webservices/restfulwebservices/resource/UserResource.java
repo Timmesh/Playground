@@ -60,4 +60,9 @@ public class UserResource {
 	public void deleteUser(@PathVariable int id) {
 		service.deleteById(id);
 	}
+
+	@GetMapping("/users/{id}/posts")
+	public List<com.timmesh.rest.webservices.restfulwebservices.entity.Post> retrieveAllUsers(@PathVariable int id) {
+		return service.retreiveAllUserPosts(id);
+	}
 }
