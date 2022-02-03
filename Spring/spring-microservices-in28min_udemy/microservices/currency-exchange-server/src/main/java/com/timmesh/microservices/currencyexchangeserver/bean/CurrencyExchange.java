@@ -1,8 +1,7 @@
-package com.timmesh.microservices.currencyexchangeservice;
+package com.timmesh.microservices.currencyexchangeserver.bean;
 
 import java.math.BigDecimal;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +10,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class CurrencyExchange {
 	private Long id;
@@ -21,5 +19,15 @@ public class CurrencyExchange {
 	private String to;
 
 	private BigDecimal conversionMultiple;
+
+	private String environment;
+
+	public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
+		super();
+		this.id = id;
+		this.from = from;
+		this.to = to;
+		this.conversionMultiple = conversionMultiple;
+	}
 
 }
