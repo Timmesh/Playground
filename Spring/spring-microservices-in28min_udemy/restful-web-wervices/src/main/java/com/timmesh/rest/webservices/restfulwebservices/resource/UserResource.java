@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.timmesh.rest.webservices.restfulwebservices.entity.Post;
 import com.timmesh.rest.webservices.restfulwebservices.entity.User;
+import com.timmesh.rest.webservices.restfulwebservices.service.PostService;
 import com.timmesh.rest.webservices.restfulwebservices.service.UserService;
 
 @RestController
@@ -25,6 +27,9 @@ public class UserResource {
 
 	@Autowired
 	private UserService service;
+
+	@Autowired
+	private PostService postService;
 
 	@GetMapping("/users")
 	public List<User> retrieveAllUsers() {
@@ -64,5 +69,16 @@ public class UserResource {
 	@GetMapping("/users/{id}/posts")
 	public List<com.timmesh.rest.webservices.restfulwebservices.entity.Post> retrieveAllUsers(@PathVariable int id) {
 		return service.retreiveAllUserPosts(id);
+	}
+
+	@PostMapping("/users/{id}/posts")
+	public ResponseEntity<Object> createPost(@PathVariable int id, @RequestBody Post post) {
+		User user = service.findOne(id);
+		post.setUser(user);
+		postService.save(post);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(post.getId())
+				.toUri();
+		return ResponseEntity.created(location).build();
+
 	}
 }
