@@ -1,4 +1,4 @@
-package com.timmesh.microservices.currencyexchangeserver;
+package com.timmesh.microservices.currencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

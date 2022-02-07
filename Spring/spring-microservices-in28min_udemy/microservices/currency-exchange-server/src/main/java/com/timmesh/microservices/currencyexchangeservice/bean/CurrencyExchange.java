@@ -1,4 +1,4 @@
-package com.timmesh.microservices.currencyexchangeserver.bean;
+package com.timmesh.microservices.currencyexchangeservice.bean;
 
 import java.math.BigDecimal;
 

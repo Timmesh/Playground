@@ -1,4 +1,4 @@
-package com.timmesh.microservices.currencyexchangeserver.controller;
+package com.timmesh.microservices.currencyexchangeservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.timmesh.microservices.currencyexchangeserver.bean.CurrencyExchange;
+import com.timmesh.microservices.currencyexchangeservice.bean.CurrencyExchange;
 import com.timmesh.microservices.currencyexchangeservice.repository.CurrencyExchangeRepository;
 
 @RestController
