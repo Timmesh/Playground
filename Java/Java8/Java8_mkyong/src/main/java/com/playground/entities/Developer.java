@@ -1,6 +1,7 @@
 package com.playground.entities;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,5 +18,11 @@ public class Developer {
 
 	String name;
 	BigDecimal salary;
+	LocalDate start;
 
+	public Developer(String name) {
+		this.name = name;
+	}
+	
+	
 }
