@@ -19,10 +19,17 @@ public class Developer {
 	String name;
 	BigDecimal salary;
 	LocalDate start;
+	int age;
 
 	public Developer(String name) {
 		this.name = name;
 	}
-	
-	
+
+	public Developer(String name, BigDecimal salary, int age) {
+		super();
+		this.name = name;
+		this.salary = salary;
+		this.age = age;
+	}
+
 }
