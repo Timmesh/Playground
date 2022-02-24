@@ -1,7 +1,11 @@
 package com.playground;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import com.playground.entity.Person;
 
@@ -22,11 +26,17 @@ public class Filtering {
 	}
 
 	public static void main(String[] args) {
-		
+
 		// Filtering by age- Introduced in JAVA 9
-		/*Map<String, List<Person>> output = createPeopleWithGender().stream()
-	            .collect(Collectors.groupingBy(Person::getName,
-	                    Collectors.filtering(e -> e.getAge() > 30, Collectors.toList())));*/
-		
+		Map<String, List<Person>> output = createPeopleWithGender().stream().collect(Collectors
+				.groupingBy(Person::getName, Collectors.filtering(e -> e.getAge() > 30, Collectors.toList())));
+		output.values().stream().filter(Predicate.not(Collection::isEmpty)).forEach(System.out::print);
+		System.out.println();
+		output.entrySet().stream().filter(e -> !e.getValue().isEmpty()).forEach(System.out::print);
+		output.entrySet().stream().filter(e -> !e.getValue().isEmpty()).forEach(e -> System.out.println(e.getKey()));
+
+		System.out.println();
+		System.out.println(output);
+
 	}
 }

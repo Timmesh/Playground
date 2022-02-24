@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.playground.entity.Person;
@@ -31,6 +32,11 @@ public class ToMapCollector {
 		Map<String, Integer> nameAndAge2 = createPeople().stream()
 				.collect(Collectors.toMap(p -> p.getName(), p -> p.getAge()));
 		System.out.println(nameAndAge2);
+
+		Map<String, Person> nameAndPerson = createPeople().stream()
+				.collect(Collectors.toMap(p -> p.getName(), Function.identity()));
+		System.out.println("nameAndPerson"+nameAndPerson);
+
 		
 		Map<String, Integer> nameAndAge3 = createPeople().stream()
 				.collect(Collectors.toMap(Person::getName, Person::getAge));
