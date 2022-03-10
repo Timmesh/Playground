@@ -1,9 +1,7 @@
 package org.timmesh.SnakeAndLadder;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Scanner;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
