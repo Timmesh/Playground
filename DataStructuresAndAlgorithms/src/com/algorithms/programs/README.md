@@ -4,6 +4,7 @@
 * Pyramid Patterns
 * Reverse String
 * Fibonacci Numbers: FibonacciNumbers.java
+* Factorial(n!): FibonacciNumbers.java
 * Palindrome:
 	Problem Statement 1: Check whether string is Palindrome.
 	Problem Statement 2: Check whether number is Palindrome.
