@@ -21,21 +21,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication()
-			.dataSource(dataSource)
-			.withDefaultSchema()
-			.withUser(User.withUsername("timmesh")
-					.password("Nakul")
-					.roles("Admin"))
-			.withUser(User.withUsername("pal")
-					.password("Nakul")
-					.roles("User"));
+			.dataSource(dataSource);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/admin").hasRole("Admin")
-			.antMatchers("/user").hasAnyRole("User", "Admin")
+			.antMatchers("/admin").hasRole("ADMIN")
+			.antMatchers("/user").hasAnyRole("USER", "ADMIN")
 			.antMatchers("/").permitAll().and().formLogin();
 	}
 	
