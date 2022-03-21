@@ -9,6 +9,7 @@ public class ReverseStringMain {
 	public static void main(String[] args) {
 		String reversedString = reverseString("nakul");
 		System.out.println(reversedString);
+		System.out.println(reverseStringUsingStream("nakul"));
 	}
 
 	private static String reverseString(String string) {
@@ -18,6 +19,10 @@ public class ReverseStringMain {
 			reverseString =  charAt + reverseString;
 		}
 		return reverseString;
+	}
+	
+	private static String reverseStringUsingStream(String string) {
+		return string.codePoints().mapToObj(Character::toString).reduce("", (i,j) -> j+i);
 	}
 
 }
