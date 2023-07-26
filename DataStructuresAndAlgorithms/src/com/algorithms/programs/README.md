@@ -1,6 +1,7 @@
 * Anagram:
 	Problem Statement 1: Check whether two strings are anagram of each other
 	Problem Statement 2: Given a sequence of words, print all anagrams together
+* Array Rotation
 * Pyramid Patterns
 * Reverse String
 * Reverse Number
