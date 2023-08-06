@@ -38,6 +38,7 @@ def print_none_type():
     print(type(None))  # <class 'NoneType'>
 
 
+# Calling all the functions to display the types
 print_text_type()
 print_numeric_types()
 print_sequence_types()
