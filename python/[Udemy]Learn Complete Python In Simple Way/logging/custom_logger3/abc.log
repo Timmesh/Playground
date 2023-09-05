@@ -1,0 +1,10 @@
+03/09/2023 12:53:47 PM:CRITICAL:f1 logger:critical message from f1
+03/09/2023 12:53:47 PM:ERROR:f1 logger:error message from f1
+03/09/2023 12:53:47 PM:WARNING:f1 logger:warning message from f1
+03/09/2023 12:53:47 PM:INFO:f1 logger:info message from f1
+03/09/2023 12:53:47 PM:DEBUG:f1 logger:debug message from f1
+03/09/2023 12:53:47 PM:CRITICAL:f2 logger:critical message from f2
+03/09/2023 12:53:47 PM:ERROR:f2 logger:error message from f2
+03/09/2023 12:53:47 PM:WARNING:f2 logger:warning message from f2
+03/09/2023 12:53:47 PM:CRITICAL:f3 logger:critical message from f3
+03/09/2023 12:53:47 PM:ERROR:f3 logger:error message from f3
