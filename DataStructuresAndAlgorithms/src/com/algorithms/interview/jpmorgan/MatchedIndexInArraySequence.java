@@ -19,7 +19,7 @@ public class MatchedIndexInArraySequence {
 		System.out.println(getSeqNumber("PL"));
 		System.out.println(getSeqNumber("Z"));
 		String lastMatchedSequence = getLastMatchedSequence();
-		System.out.println("Length of List" + (lastMatchedSequence != "" ? getSeqNumber(lastMatchedSequence) : 0));
+		System.out.println("Length of List" + (!lastMatchedSequence.equals("") ? getSeqNumber(lastMatchedSequence) : 0));
 
 	}
 
