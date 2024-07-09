@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { fetchCompaniesStockInfo } from '../utils/api';
 
 const StockTable = () => {
   const [stockData, setStockData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:4000/api/getCompaniesStockInfo')
-      .then(response => {
-        setStockData(response.data);
-      })
-      .catch(error => {
-        console.error("There was an error fetching the stock data!", error);
-      });
+    fetchCompaniesStockInfo().then(setStockData);
   }, []);
 
   const handleRowClick = (companyName) => {
@@ -68,6 +62,6 @@ const StockTable = () => {
       </tbody>
     </table>
   );
-}
+};
 
 export default StockTable;

@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import StockTable from './StockTable';
-import StockInfo from './StockInfo';
-import SearchBox from './SearchBox';
-import './App.css';
+import StockTable from './components/StockTable';
+import StockInfo from './pages/StockInfo';
+import SearchBox from './components/SearchBox';
+import './styles/App.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Stock Information</h1>
+        <h1>Stock Watchlist</h1>
         <SearchBox />
         <Routes>
           <Route exact path="/" element={<StockTable />} />

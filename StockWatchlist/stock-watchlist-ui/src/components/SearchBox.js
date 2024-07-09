@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { fetchResults } from '../utils/api';
 
 const SearchBox = () => {
   const [query, setQuery] = useState('');
@@ -8,24 +8,15 @@ const SearchBox = () => {
   const [isTyping, setIsTyping] = useState(false);
   const navigate = useNavigate();
 
-  const fetchResults = async () => {
-    try {
-      const response = await axios.get(`http://127.0.0.1:4000/api/search?query=${query}`);
-      setResults(response.data.data.stocks || []);
-    } catch (error) {
-      console.error('Error fetching search results:', error);
-    }
-  };
-
   const handleChange = (e) => {
     setQuery(e.target.value);
     setIsTyping(true);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (query) {
       const timerId = setTimeout(() => {
-        fetchResults();
+        fetchResults(query).then(setResults);
       }, 3000);
 
       return () => clearTimeout(timerId);

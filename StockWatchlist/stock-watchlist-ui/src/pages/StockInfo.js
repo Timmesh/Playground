@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { fetchStockInfo } from '../utils/api';
 
 const StockInfo = () => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
-    const fetchStockInfo = async () => {
-      try {
-        const response = await axios.get(`http://127.0.0.1:4000/api/getStockInfo/${id}`);
-        setInfo(response.data);
-      } catch (error) {
-        console.error('Error fetching stock info:', error);
-      }
-    };
-
-    fetchStockInfo();
+    fetchStockInfo(id).then(setInfo);
   }, [id]);
 
   if (!info) return <div>Loading...</div>;
