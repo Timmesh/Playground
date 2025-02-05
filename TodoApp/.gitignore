@@ -1,0 +1,11 @@
+# Ignore class files
+*.class
+
+# Ignore target directory (used for build outputs)
+target/
+
+# Ignore JAR files
+*.jar
+
+# Ignore IntelliJ IDEA project files
+.idea/
